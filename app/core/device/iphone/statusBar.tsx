@@ -31,9 +31,6 @@ export function StatusBar(props?: Partial<StatusBarProps>) {
         </span>
       </div>
 
-      {/* 2. Centro: Hueco para la Dynamic Island (opcional si ya la tienes posicionada absolute) */}
-      <div className="flex w-[33%] justify-center">{/* Aquí iría tu componente <DynamicIsland /> */}</div>
-
       <div className="flex w-[20%] items-center justify-end gap-[1.5cqw]">
         <SfCellularbars width={14} />
         <SfWifi width={14} />
