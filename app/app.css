@@ -1,15 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sf-header: 'SF Pro Display', sans-serif;
+    --font-sf-text: 'SF Pro Text', sans-serif;
+    --font-sf-ui: 'SF Pro Rounded', sans-serif;
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+html, body {
+    @apply font-sf-text;
 }
