@@ -9,6 +9,9 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@bradleyhodges/sfsymbols": "^7.0.4",
+    "@bradleyhodges/sfsymbols-react": "^7.0.4",
+    "@bradleyhodges/sfsymbols-types": "^7.0.4",
     "@react-router/node": "7.12.0",
     "@react-router/serve": "7.12.0",
     "clsx": "^2.1.1",
@@ -25,6 +28,9 @@
     "@types/node": "^22",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "eslint": "^10.0.0",
+    "eslint-config-codely": "^4.5.0",
+    "eslint-plugin-better-tailwindcss": "^4.3.0",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
     "vite": "^7.1.7",
