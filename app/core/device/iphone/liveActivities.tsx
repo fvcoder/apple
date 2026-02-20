@@ -1,19 +1,28 @@
 import { animate } from "animejs";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+
+import { useIPhoneStore } from "~/core/state/iphone.state";
+
+const targets = {
+  compact: { w: "25%", h: "3%", radius: "50px" },
+  music: { w: "48%", h: "3.8%", radius: "22px" },
+  expanded: { w: "92%", h: "22%", radius: "42px" },
+};
+
+export type LiveActivityMode = keyof typeof targets;
+
+export interface LiveActivitiesProps {
+  mode: LiveActivityMode;
+  setMode: (mode: LiveActivityMode) => void;
+}
 
 export const LiveActivities = () => {
-  const [mode, setMode] = useState("music"); // compact | music | expanded
+  const mode = useIPhoneStore((x) => x.statusBarLiveActivityMode);
+  const setMode = useIPhoneStore((x) => x.statusBarSetLiveActivityMode);
   const islandRef = useRef(null);
   const contentRef = useRef(null);
 
   useEffect(() => {
-    // Definimos las dimensiones según el modo
-    const targets = {
-      compact: { w: "33%", h: "3%", radius: "50px" },
-      music: { w: "48%", h: "3.8%", radius: "22px" },
-      expanded: { w: "92%", h: "22%", radius: "42px" },
-    };
-
     const config = targets[mode];
 
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
@@ -43,7 +52,7 @@ export const LiveActivities = () => {
     <div
       ref={islandRef}
       onClick={() => setMode(mode === "compact" ? "music" : mode === "music" ? "expanded" : "compact")}
-      className="absolute top-[1%] left-1/2 z-50 flex -translate-x-1/2 cursor-pointer items-center justify-center overflow-hidden border border-white/5 bg-black shadow-2xl"
+      className="absolute top-[1.5%] left-1/2 z-50 flex -translate-x-1/2 cursor-pointer items-center justify-center overflow-hidden border border-white/5 bg-black shadow-2xl"
     >
       <div ref={contentRef} className="flex size-full items-center px-[3cqw]">
         {/* Vista: Música */}

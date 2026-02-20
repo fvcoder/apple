@@ -1,6 +1,5 @@
 import { cn } from "../../utils/cn";
 
-import { LiveActivities } from "./liveActivities";
 import { StatusBar, type StatusBarProps } from "./statusBar";
 
 interface IPhoneDeviceProps {
@@ -20,7 +19,6 @@ export function IPhoneDevice(props: IPhoneDeviceProps) {
         orientation === "vertical" ? "aspect-9/19.5" : "aspect-19.5/9",
       )}
     >
-      <LiveActivities />
       <StatusBar {...props.statusBar} />
 
       {props.children}
