@@ -1,3 +1,5 @@
+import { animate } from "animejs";
+import { useEffect, useRef } from "react";
 import { cn } from "tailwind-variants";
 
 import { LiveActivities } from "./liveActivities";
@@ -11,6 +13,26 @@ import { useIPhoneStore } from "~/core/state/iphone.state";
 export function StatusBar() {
   const theme = useIPhoneStore((x) => x.statusBarTheme);
   const liveActivityMode = useIPhoneStore((x) => x.statusBarLiveActivityMode);
+  const sfCellularbarsRef = useRef(null);
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (sfCellularbarsRef.current !== null) {
+      if (liveActivityMode === "compact") {
+        animate(sfCellularbarsRef.current, {
+          clipPath: ["inset(0 0 0 100%)", "inset(0 0 0 0%)"],
+          easing: "spring(1, 80, 13, 0)",
+          duration: 300,
+        });
+      } else {
+        animate(sfCellularbarsRef.current, {
+          clipPath: ["inset(0 0 0 0%)", "inset(0 0 0 100%)"],
+          easing: "spring(1, 80, 13, 0)",
+          duration: 300,
+        });
+      }
+    }
+  }, [liveActivityMode]);
 
   return (
     <>
@@ -27,7 +49,7 @@ export function StatusBar() {
         </div>
 
         <div className="flex items-center justify-end gap-[1.5cqw]">
-          {liveActivityMode === "compact" && <SfCellularbars style={{ width: 12 }} />}
+          <SfCellularbars ref={sfCellularbarsRef} style={{ width: 12 }} />
           <SfWifi style={{ width: 12 }} />
           <SfBattery100percent style={{ width: 22 }} />
         </div>
