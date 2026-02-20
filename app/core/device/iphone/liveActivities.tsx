@@ -7,6 +7,7 @@ const targets = {
   compact: { w: "25%", h: "3%", radius: "50px" },
   music: { w: "48%", h: "3.8%", radius: "22px" },
   expanded: { w: "92%", h: "22%", radius: "42px" },
+  call: { w: "95%", h: "12%", radius: "50px" },
 };
 
 export type LiveActivityMode = keyof typeof targets;
@@ -27,14 +28,25 @@ export const LiveActivities = () => {
 
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (islandRef.current !== null) {
-      animate(islandRef.current, {
-        width: config.w,
-        height: config.h,
-        borderRadius: config.radius,
-        duration: 600,
-        // Usamos un sistema de "spring" para imitar a Apple
-        easing: "spring(1, 80, 13, 0)",
-      });
+      if (mode === "call") {
+        animate(islandRef.current, {
+          width: config.w,
+          height: config.h,
+          borderRadius: config.radius,
+          top: "1%",
+          duration: 600,
+          easing: "spring(1, 80, 13, 0)",
+        });
+      } else {
+        animate(islandRef.current, {
+          width: config.w,
+          height: config.h,
+          borderRadius: config.radius,
+          top: "1.5%",
+          duration: 600,
+          easing: "spring(1, 80, 13, 0)",
+        });
+      }
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition

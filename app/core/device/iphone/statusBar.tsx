@@ -22,13 +22,13 @@ export function StatusBar() {
         animate(sfCellularbarsRef.current, {
           clipPath: ["inset(0 0 0 100%)", "inset(0 0 0 0%)"],
           easing: "spring(1, 80, 13, 0)",
-          duration: 300,
+          duration: 600,
         });
       } else {
         animate(sfCellularbarsRef.current, {
           clipPath: ["inset(0 0 0 0%)", "inset(0 0 0 100%)"],
           easing: "spring(1, 80, 13, 0)",
-          duration: 300,
+          duration: 600,
         });
       }
     }
