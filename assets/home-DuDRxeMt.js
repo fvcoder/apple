@@ -1,0 +1,1 @@
+import{p as e,w as t}from"./chunk-EPOLDU6W-CP3WDhNt.js";function n(){return e.jsx("main",{className:"flex items-center justify-center pt-16 pb-4",children:"main"})}function c({}){return[{title:"New React Router App"},{name:"description",content:"Welcome to React Router!"}]}const i=t(function(){return e.jsx(n,{})});export{i as default,c as meta};
