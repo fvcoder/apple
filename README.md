@@ -6,7 +6,7 @@ A modern, production-ready template for building full-stack React applications u
 
 ## Features
 
-- 🚀 Server-side rendering
+- 🧩 Static site (SSR disabled)
 - ⚡️ Hot Module Replacement (HMR)
 - 📦 Asset bundling and optimization
 - 🔄 Data loading and mutations
@@ -43,6 +43,18 @@ npm run build
 ```
 
 ## Deployment
+
+### GitHub Pages (gh-pages)
+
+This project is configured as a static site for GitHub Pages:
+
+- `ssr: false` in `react-router.config.ts`
+- `base: "/apple/"` in `vite.config.ts`
+- Automatic deploy on push to `main` via `.github/workflows/deploy-pages.yml`
+- Published branch: `gh-pages`
+- Site URL: `https://fvcoder.github.io/apple/`
+
+The workflow publishes `build/client` and creates a `404.html` fallback for SPA routes.
 
 ### Docker Deployment
 
