@@ -14,7 +14,7 @@ const LauncherApp: () => React.ReactNode = () => {
   return (
     <section
       className="size-full bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(public/iphone/bg/iClarified-iOS26-Sky-HomeScreen-Light.jpg)` }}
+      style={{ backgroundImage: `url(/iphone/bg/iClarified-iOS26-Sky-HomeScreen-Light.jpg)` }}
     >
       <div
         className="flex size-full flex-col gap-5"
