@@ -37,7 +37,7 @@ export function StatusBar() {
 
   return (
     <>
-      <header className="absolute top-0 left-0 z-50 flex h-[6%] w-full items-center justify-between pr-6.25 pl-10">
+      <header className="absolute top-6 left-0 z-50 flex w-full items-center justify-between pr-6.25 pl-10">
         <div className="flex w-[20%] items-center justify-start">
           <span
             className={cn(
