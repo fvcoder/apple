@@ -49,7 +49,9 @@ export function StatusBar() {
           </span>
         </div>
 
-        <div className="flex items-center justify-end gap-[1.5cqw]">
+        <div
+          className={cn("flex items-center justify-end gap-[1.5cqw]", theme === "light" ? "text-black" : "text-white")}
+        >
           <SfCellularbars ref={sfCellularbarsRef} style={{ width: 21 }} />
           <SfWifi style={{ width: 21 }} />
           <SfBattery100percent style={{ width: 30 }} />

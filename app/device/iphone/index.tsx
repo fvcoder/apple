@@ -1,3 +1,5 @@
+import { Launcher } from "../apps/launcher";
+
 import { StatusBar } from "./statusBar";
 
 export function IPhoneDevice({ children }: { children?: React.ReactNode }) {
@@ -6,6 +8,8 @@ export function IPhoneDevice({ children }: { children?: React.ReactNode }) {
       <div className="overflow-hidden rounded-[18%/8.5%] border-14 border-black">
         <div className="@container relative aspect-9/19.5">
           <StatusBar />
+
+          <Launcher />
 
           {children}
         </div>

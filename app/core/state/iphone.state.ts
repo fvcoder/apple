@@ -4,6 +4,7 @@ import { persist } from "zustand/middleware";
 import type { DynamicIslandAnatomyKeys } from "~/device/iphone/dynamicIsland";
 
 interface IPhoneState {
+  isActive: boolean;
   statusBarTheme: "light" | "dark";
   statusBarDynamicIslandMode: DynamicIslandAnatomyKeys;
   statusBarSetDynamicIslandMode: (mode: DynamicIslandAnatomyKeys) => void;
@@ -12,7 +13,8 @@ interface IPhoneState {
 export const useIPhoneStore = create<IPhoneState>()(
   persist(
     (set) => ({
-      statusBarTheme: "light",
+      isActive: true,
+      statusBarTheme: "dark",
       statusBarDynamicIslandMode: "default",
       statusBarSetDynamicIslandMode: (mode) => set({ statusBarDynamicIslandMode: mode }),
     }),

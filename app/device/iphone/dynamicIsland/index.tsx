@@ -61,7 +61,6 @@ export function DynamicIslandIPhone() {
           </div>
         </div>
       </div>
-      divdasdada {mode}
     </>
   );
 }
