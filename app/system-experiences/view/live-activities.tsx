@@ -1,4 +1,4 @@
-import { IPhoneDevice } from "~/core/device/iphone";
+import { IPhoneDevice } from "~/device/iphone";
 
 export default function LiveActivitiesRoute() {
   return (

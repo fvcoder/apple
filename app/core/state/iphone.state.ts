@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import type { LiveActivityMode } from "../device/iphone/liveActivities";
+import type { LiveActivityMode } from "../../device/iphone/liveActivities";
 
 interface IPhoneState {
   statusBarTheme: "light" | "dark";

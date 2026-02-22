@@ -1,8 +1,9 @@
+/* eslint-disable check-file/folder-naming-convention */
 import { animate } from "animejs";
 import { useEffect, useRef } from "react";
 import { cn } from "tailwind-variants";
 
-import { DynamicIslandIPhone } from "./dynamicIsland";
+import { DynamicIslandIPhone } from "../dynamicIsland";
 
 import { Clock } from "~/core/components/clock";
 import { SfBattery100percent } from "~/core/icons/sfBattery100percent";
@@ -36,11 +37,11 @@ export function StatusBar() {
 
   return (
     <>
-      <header className="absolute top-0 left-0 z-50 flex h-[6%] w-full items-center justify-between px-[12%]">
+      <header className="absolute top-0 left-0 z-50 flex h-[6%] w-full items-center justify-between pr-6.25 pl-10">
         <div className="flex w-[20%] items-center justify-start">
           <span
             className={cn(
-              "flex h-4.5 items-center font-sf-ui text-[3.8cqw] font-bold tracking-tight",
+              "flex h-4.5 items-center font-sf-ui text-[16px] font-bold tracking-tight",
               theme === "light" ? "text-black" : "text-white",
             )}
           >
@@ -49,9 +50,9 @@ export function StatusBar() {
         </div>
 
         <div className="flex items-center justify-end gap-[1.5cqw]">
-          <SfCellularbars ref={sfCellularbarsRef} style={{ width: 15 }} />
-          <SfWifi style={{ width: 15 }} />
-          <SfBattery100percent style={{ width: 25 }} />
+          <SfCellularbars ref={sfCellularbarsRef} style={{ width: 21 }} />
+          <SfWifi style={{ width: 21 }} />
+          <SfBattery100percent style={{ width: 30 }} />
         </div>
       </header>
       <DynamicIslandIPhone />
