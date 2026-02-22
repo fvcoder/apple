@@ -13,13 +13,13 @@ import { useIPhoneStore } from "~/core/state/iphone.state";
 
 export function StatusBar() {
   const theme = useIPhoneStore((x) => x.statusBarTheme);
-  const liveActivityMode = useIPhoneStore((x) => x.statusBarLiveActivityMode);
+  const dynamicIslandMode = useIPhoneStore((x) => x.statusBarDynamicIslandMode);
   const sfCellularbarsRef = useRef(null);
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (sfCellularbarsRef.current !== null) {
-      if (liveActivityMode === "compact") {
+      if (dynamicIslandMode === "default") {
         animate(sfCellularbarsRef.current, {
           clipPath: ["inset(0 0 0 100%)", "inset(0 0 0 0%)"],
           easing: "spring(1, 80, 13, 0)",
@@ -33,7 +33,7 @@ export function StatusBar() {
         });
       }
     }
-  }, [liveActivityMode]);
+  }, [dynamicIslandMode]);
 
   return (
     <>

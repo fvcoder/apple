@@ -1,20 +1,20 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import type { LiveActivityMode } from "../../device/iphone/liveActivities";
+import type { DynamicIslandAnatomyKeys } from "~/device/iphone/dynamicIsland";
 
 interface IPhoneState {
   statusBarTheme: "light" | "dark";
-  statusBarLiveActivityMode: LiveActivityMode;
-  statusBarSetLiveActivityMode: (mode: LiveActivityMode) => void;
+  statusBarDynamicIslandMode: DynamicIslandAnatomyKeys;
+  statusBarSetDynamicIslandMode: (mode: DynamicIslandAnatomyKeys) => void;
 }
 
 export const useIPhoneStore = create<IPhoneState>()(
   persist(
     (set) => ({
       statusBarTheme: "light",
-      statusBarLiveActivityMode: "compact",
-      statusBarSetLiveActivityMode: (mode) => set({ statusBarLiveActivityMode: mode }),
+      statusBarDynamicIslandMode: "default",
+      statusBarSetDynamicIslandMode: (mode) => set({ statusBarDynamicIslandMode: mode }),
     }),
     {
       name: "iphone-state",
