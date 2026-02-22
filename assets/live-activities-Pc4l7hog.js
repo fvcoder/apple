@@ -1,1 +1,0 @@
-import{w as t,p as i}from"./chunk-EPOLDU6W-CP3WDhNt.js";import{I as e}from"./index-CDpYH81n.js";import"./bundle-mjs-BOymHvuF.js";const m=t(function(){return i.jsx("div",{children:i.jsx("div",{className:"max-w-75",children:i.jsx(e,{})})})});export{m as default};
