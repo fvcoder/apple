@@ -66,7 +66,7 @@ export const LiveActivities = () => {
     <div
       ref={islandRef}
       onClick={() => setMode(mode === "compact" ? "music" : mode === "music" ? "expanded" : "compact")}
-      className="absolute top-[1.5%] left-1/2 z-50 flex -translate-x-1/2 cursor-pointer items-center justify-center overflow-hidden border border-white/5 bg-black shadow-2xl"
+      className="absolute top-[1.5%] left-1/2 z-50 flex -translate-x-1/2 cursor-pointer items-center justify-center overflow-hidden border border-white/5 bg-black"
     >
       <div ref={contentRef} className="flex size-full items-center px-[3cqw]">
         {mode === "music" && (

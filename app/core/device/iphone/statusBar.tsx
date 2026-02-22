@@ -2,7 +2,7 @@ import { animate } from "animejs";
 import { useEffect, useRef } from "react";
 import { cn } from "tailwind-variants";
 
-import { LiveActivities } from "./liveActivities";
+import { DynamicIslandIPhone } from "./dynamicIsland";
 
 import { Clock } from "~/core/components/clock";
 import { SfBattery100percent } from "~/core/icons/sfBattery100percent";
@@ -49,12 +49,12 @@ export function StatusBar() {
         </div>
 
         <div className="flex items-center justify-end gap-[1.5cqw]">
-          <SfCellularbars ref={sfCellularbarsRef} style={{ width: 12 }} />
-          <SfWifi style={{ width: 12 }} />
-          <SfBattery100percent style={{ width: 22 }} />
+          <SfCellularbars ref={sfCellularbarsRef} style={{ width: 15 }} />
+          <SfWifi style={{ width: 15 }} />
+          <SfBattery100percent style={{ width: 25 }} />
         </div>
       </header>
-      <LiveActivities />
+      <DynamicIslandIPhone />
     </>
   );
 }

@@ -1,27 +1,15 @@
-import { cn } from "../../utils/cn";
+import { StatusBar } from "./statusBar";
 
-import { StatusBar, type StatusBarProps } from "./statusBar";
-
-interface IPhoneDeviceProps {
-  children?: React.ReactNode;
-  orientation?: "vertical" | "horizontal";
-
-  statusBar?: Partial<StatusBarProps>;
-}
-
-export function IPhoneDevice(props: IPhoneDeviceProps) {
-  const orientation = props.orientation ?? "vertical";
-
+export function IPhoneDevice({ children }: { children?: React.ReactNode }) {
   return (
-    <div
-      className={cn(
-        "@container relative overflow-hidden rounded-[18%/8.5%] border-[6px] border-black bg-white",
-        orientation === "vertical" ? "aspect-9/19.5" : "aspect-19.5/9",
-      )}
-    >
-      <StatusBar {...props.statusBar} />
+    <div className="overflow-hidden rounded-[19%/9%] border-3 border-zinc-300" style={{ width: 453 }}>
+      <div className="overflow-hidden rounded-[18%/8.5%] border-14 border-black">
+        <div className="@container relative aspect-9/19.5">
+          <StatusBar />
 
-      {props.children}
+          {children}
+        </div>
+      </div>
     </div>
   );
 }
