@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
+import { useAppLauncher } from "./state/useAppLauncher";
+
 import { Carousel } from "~/core/components/carousel";
+import type { EmblaCarouselApi } from "~/core/context/carousel";
 import { useCarousel } from "~/core/hooks/useCarousel";
 
 export function AppExplorerRoot({ children }: { children: React.ReactNode }) {
@@ -12,7 +17,10 @@ const AppList = Array.from({ length: 6 * 4 * 2.5 }).map((_, i) => ({
 
 export function AppExplorerContent() {
   const carousel = useCarousel();
-  const itemsPerPage = 6 * 4; // 6 rows and 4 columns
+  const setHomePage = useAppLauncher((x) => x.setHomePage);
+  const setHomePageCount = useAppLauncher((x) => x.setHomePageCount);
+
+  const itemsPerPage = 6 * 4;
   const itemsPages = AppList.reduce<(typeof AppList)[]>((pages, item, index) => {
     const pageIndex = Math.floor(index / itemsPerPage);
     if (!pages[pageIndex]) {
@@ -22,6 +30,28 @@ export function AppExplorerContent() {
 
     return pages;
   }, []);
+
+  function onScroll(api: EmblaCarouselApi) {
+    setHomePage((api?.selectedScrollSnap() ?? 0) + 1);
+  }
+
+  useEffect(() => {
+    setHomePageCount(itemsPages.length);
+  }, [setHomePageCount, itemsPages]);
+
+  useEffect(() => {
+    if (!carousel.api) {
+      return;
+    }
+
+    carousel.api.on("scroll", onScroll);
+
+    return () => {
+      if (carousel.api) {
+        carousel.api.off("scroll", onScroll);
+      }
+    };
+  }, [carousel.api]);
 
   return (
     <div ref={carousel.carouselRef} className="size-full flex-1 overflow-hidden" data-slot="carousel-content">
@@ -39,7 +69,9 @@ export function AppExplorerContent() {
                   <div className="aspect-square w-full">
                     <div className="size-full rounded-2xl bg-yellow-500"></div>
                   </div>
-                  <div className="mt-1 line-clamp-1 text-center text-xs select-none">{item.name}</div>
+                  <div className="mt-1 line-clamp-1 text-center font-sf-ui text-xs text-white select-none">
+                    {item.name}
+                  </div>
                 </div>
               ))}
             </div>

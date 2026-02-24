@@ -16,9 +16,11 @@ export type CarouselProps = {
   setApi?: (api: CarouselApi) => void;
 };
 
+export type EmblaCarouselApi = ReturnType<typeof useEmblaCarousel>[1];
+
 export type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0];
-  api: ReturnType<typeof useEmblaCarousel>[1];
+  api: EmblaCarouselApi;
   scrollPrev: () => void;
   scrollNext: () => void;
   canScrollPrev: boolean;
