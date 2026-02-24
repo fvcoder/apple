@@ -1,0 +1,1 @@
+import{p as t,w as n,O as s}from"./chunk-EPOLDU6W-CP3WDhNt.js";import{c as a}from"./cn-br2UVbbw.js";function e({children:o,className:r}){return t.jsx("div",{className:a("mx-auto w-full px-6 md:max-w-5xl",r),children:o})}const l=n(function(){return t.jsx(e,{children:t.jsx(s,{})})});export{l as default};
