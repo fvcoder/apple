@@ -58,6 +58,7 @@ export function AppExplorerContent() {
       <div className="flex size-full">
         {itemsPages.map((page, pageIndex) => (
           <div
+            key={`app-launcher-page-${pageIndex}`}
             role="group"
             aria-roledescription="slide"
             data-slot="carousel-item"
