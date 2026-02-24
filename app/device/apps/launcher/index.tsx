@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 
+import { AppExplorer } from "./appExplorer";
+
 import { SfMagnifyingGlass } from "~/core/icons/sfMagnifyingglass";
 import { useDevice } from "~/core/state/device.state";
 import { iPhoneSafeAreaInsets } from "~/device/iphone/data/constants";
@@ -22,10 +24,10 @@ const LauncherApp: () => React.ReactNode = () => {
           padding: `${safeAreaInsets.top}px ${safeAreaInsets.right}px ${safeAreaInsets.bottom}px ${safeAreaInsets.left}px`,
         }}
       >
-        <main className="flex flex-1 flex-col gap-5">
-          <div className="flex-1">
-            <div className="size-full rounded-2xl bg-red-500">asa</div>
-          </div>
+        <main className="flex flex-1 flex-col gap-5 pt-5">
+          <AppExplorer.Root>
+            <AppExplorer.Content />
+          </AppExplorer.Root>
           <button className="mx-auto w-fit">
             <div className="flex size-full h-8 items-center justify-center gap-1.5 rounded-2xl border border-white/20 px-3 text-white backdrop-blur-xs">
               <SfMagnifyingGlass width={12} />
